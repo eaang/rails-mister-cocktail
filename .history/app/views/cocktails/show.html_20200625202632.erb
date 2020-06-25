@@ -1,0 +1,61 @@
+<div id="recipe" class="d-flex flex-wrap">
+  <div class="col-12 col-md-6 col-lg-4 d-flex flex-column">
+    <div class="card">
+      <div class="card-header">
+        <h3><%= @show_cocktail.name.split.map(&:capitalize)*' ' %></h3>
+        <a href="#">Edit Cocktail Info</a>
+      </div>
+      <img class="w-100" src="<%= @show_cocktail.picture %>" alt="<%= @show_cocktail.name %>">
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-between">
+    <div class="card border-secondary w-100">
+      <div class="card-header">Ingredients List</div>
+      <div class="card-body">
+        <% @doses.each do |dose| %>
+          <div class="ingredient">
+            <%= link_to '✖️', dose_path(dose),
+            data: {confirm: 'Delete dose?'}, 
+            class: 'text-decoration-none', method: :delete %>
+            <%= "#{dose.description} #{dose.ingredient.name}" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="card border-secondary w-100">
+      <div class="card-header">Directions</div>
+      <div class="card-body">
+        <ol class="list-group pl-3">
+          <% @show_cocktail.direction.split('.').each do |step|%>
+            <li class="pt-1"><%= step %>.</li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4 d-flex flex-column">
+
+
+
+<div class="card text-white border-secondary bg-secondary w-100">
+  <div class="card-header">Add a dose?</div>
+  <div class="card-body">
+    <%= simple_form_for [@show_cocktail, @dose] do |f| %>
+      <div class="form-row">
+      <div class="col">
+          <%= f.input :description, label: false, placeholder: 'How much?' %>
+        </div>
+        </div>
+        <div class="form-row">
+      <div class="col">
+          <%= f.association :ingredient, label: false, prompt: 'select ingredient' %>
+        </div>
+        </div>
+        <div class="form-row">
+      <div class="col">
+          <%= f.button :submit, 'Add', class: 'btn btn-dark btn-block' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div id="recipe" class="d-flex flex-wrap">
+<div class="col-12 col-md-6 col-lg-4">
+
+<div class="card border-light mb-3">
+  <h3 class="card-header"><%= @show_cocktail.name.split.map(&:capitalize)*' ' %></h3>
+  <img src="<%= @show_cocktail.picture %>" alt="<%= @show_cocktail.name %>">
+  <div class="card-body">
+    <p class="card-text"><%= @show_cocktail.directions %></p>
+  </div>
+</div>
+
+</div>
+<div class="col-12 col-md-6 col-lg-4">
+  <ul>
+    <% @doses.each do |dose| %>
+      <li>
+        <%= "#{dose.description} #{dose.ingredient.name.split.map(&:capitalize)*' '}" %>
+        <%= link_to '❌', dose_path(dose),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="col-12 col-lg-4">
+  <h2>Add a dose</h2>
+  <%= simple_form_for [@show_cocktail, @dose] do |f| %>
+    <div class="form-row">
+      <div class="col-sm-12 col-md-5">
+        <%= f.input :description, label: false, placeholder: 'How much?' %>
+      </div>
+      <div class="col-sm-12 col-md-5">
+        <%= f.association :ingredient, label: false, prompt: 'Choose ingredient' %>
+      </div>
+      <div class="col">
+        <%= f.button :submit, 'Add', class: 'btn btn-primary btn-block' %>
+      </div>
+    </div>
+  <% end %>
+</div>
