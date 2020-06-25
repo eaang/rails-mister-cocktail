@@ -1,0 +1,16 @@
+<div class="col">
+  <div class="row mb-5 justify-content-center">
+    <h1 class="text-light mb-0">Pick Your Poison</h1>
+  </div>
+  <div class="row">
+    <div class="cards flex-fill">
+      <% @cocktails.each do |cocktail| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4))">
+        <div class="background-image" style="background-image: url(<%= cocktail.picture %>)">
+          <%= link_to cocktail.name.titleize, cocktail, class: 'text-light'%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

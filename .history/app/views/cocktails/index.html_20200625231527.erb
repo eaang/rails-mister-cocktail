@@ -1,0 +1,15 @@
+<div class="col">
+  <div class="row mb-5 justify-content-center">
+    <h1 class="text-light mb-0">Pick Your Poison</h1>
+  </div>
+  <div class="row">
+    <div class="cards flex-fill">
+      <% @cocktails.each do |cocktail| %>
+        <div class="card-category">
+          <%= link_to image_tag(cocktail.picture), cocktail, class: 'cocktail-pic'%>
+          <%= cocktail.name.titleize %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

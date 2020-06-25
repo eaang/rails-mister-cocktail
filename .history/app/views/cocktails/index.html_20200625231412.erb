@@ -5,13 +5,12 @@
   <div class="row">
     <div class="cards flex-fill">
       <% @cocktails.each do |cocktail| %>
-        <%= link_to cocktail, class: 'text-light' do %>
-          <div class="cocktail-pic" style="background-image: url(<%= cocktail.picture %>)">
-            <div class="card-category">
-            <%= cocktail.name.titleize %>
-            </div>
+        <div class="cocktail-pic" style="background-image: url(<%= cocktail.picture %>)">
+        <div class="card-category">
+          <%= link_to image_tag(cocktail.picture), cocktail, class: 'text-light'%>
+          <%= cocktail.name.titleize %>
           </div>
-        <% end %>
+        </div>
       <% end %>
     </div>
   </div>
