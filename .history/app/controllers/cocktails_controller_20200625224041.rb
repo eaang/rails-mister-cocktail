@@ -32,7 +32,7 @@ class CocktailsController < ApplicationController
     redirect_to @cocktail
   end
 
-  def destroy
+  def delete
     @show_cocktail = Cocktail.find(params[:id])
     @show_cocktail.destroy
 

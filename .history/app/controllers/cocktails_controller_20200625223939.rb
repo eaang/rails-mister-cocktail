@@ -26,13 +26,13 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params[:cocktail])
-    @cocktail.name = @cocktail.name.downcase
+    @show_cocktail.name = @show_cocktail.name.downcase
     @cocktail.save if @cocktail.valid?
 
     redirect_to @cocktail
   end
 
-  def destroy
+  def delete
     @show_cocktail = Cocktail.find(params[:id])
     @show_cocktail.destroy
 

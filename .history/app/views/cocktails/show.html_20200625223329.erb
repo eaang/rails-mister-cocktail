@@ -1,30 +1,30 @@
-<div id="recipe" class="d-flex flex-wrap flex-fill">
+<div id="recipe" class="d-flex flex-wrap">
   <div class="col-12 col-md-6 col-lg-4 d-flex flex-column">
-    <div class="card text-white bg-primary mb-3">
+    <div class="card mb-3 bg-primary ">
       <div class="card-header">
         <h3 class="text-white"><%= @show_cocktail.name.titleize %></h3>
       </div>
-      <img class="img-fluid" src="<%= @show_cocktail.picture %>" alt="<%= @show_cocktail.name %>">
+      <img class="w-100" src="<%= @show_cocktail.picture %>" alt="<%= @show_cocktail.name %>">
         <div class="btn-group">
           <button type="button" class="btn btn-primary dropdown-toggle rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Edit
           </button>
-          <div class="dropdown-menu bg-primary border-0 w-100">
+          <div class="dropdown-menu border-0 w-100">
             <%= simple_form_for @show_cocktail, html: { class: 'px-2 py-1' } do |f| %>
-              <%= f.input :name, label: false, placeholder: 'Cocktail Name', input_html: { class: 'bg-dark text-light' } %>
+              <%= f.input :name, label:false, placeholder: 'Cocktail Name', input_html: { class: 'bg-dark text-light' } %>
               <%= f.input :direction, as: :text, label: false, placeholder: 'Directions', input_html: { class: 'bg-dark text-light' } %>
-              <%= f.input :picture, label: false, placeholder: 'Image Link', input_html: { class: 'bg-dark text-light' } %>
-              <%= f.button :submit, 'Edit', class: 'btn btn-secondary btn-block' %>
+              <%= f.input :picture, label:false, placeholder: 'Image Link', input_html: { class: 'bg-dark text-light' } %>
+              <%= f.button :submit, 'Edit', class: 'btn btn-primary btn-block' %>
             <% end %>
           </div>
-          <%= link_to 'Delete', cocktail_path(@show_cocktail),
+          <%= link_to 'Delete', cocktails_path(@show_cocktail),
           data: {confirm: "Delete #{@show_cocktail.name.titleize}?"}, 
           class: 'btn btn-danger', method: :delete %>
         </div>
     </div>
   </div>
   <div class="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-between">
-    <div class="card text-white bg-primary mb-3">
+    <div class="card border-secondary w-100 mb-3 bg-primary ">
       <div class="card-header">Ingredients List</div>
       <div class="card-body">
         <% @doses.each do |dose| %>
@@ -37,7 +37,7 @@
         <% end %>
       </div>
     </div>
-    <div class="card mb-3 bg-primary w-100 mb-3 bg-primary">
+    <div class="card border-secondary w-100 mb-3 bg-primary ">
       <div class="card-header">Directions</div>
       <div class="card-body">
         <ol class="list-group pl-3">
@@ -49,8 +49,8 @@
     </div>
   </div>
   <div class="col-12 col-lg-4 d-flex flex-column">
-    <div class="card text-white bg-primary mb-3">
-      <div class="card-header">Add a dose?</div>
+    <div class="card text-white border-secondary bg-secondary w-100">
+      <div class="card-header text-light">Add a dose?</div>
       <div class="card-body">
         <%= simple_form_for [@show_cocktail, @dose] do |f| %>
           <div class="form-row">

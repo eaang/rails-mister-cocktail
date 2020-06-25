@@ -6,7 +6,7 @@
     <div class="cards flex-fill">
       <% @cocktails.each do |cocktail| %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= cocktail.picture %>)">
-          <%= link_to cocktail.name.titleize, cocktail, class: 'text-light'%>
+          <%= link_to cocktail.name.titleize' ', cocktail, class: 'text-light'%>
         </div>
       <% end %>
     </div>
