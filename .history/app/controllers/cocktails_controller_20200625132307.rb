@@ -1,12 +1,11 @@
 class CocktailsController < ApplicationController
   def index
-    @cocktails = Cocktail.all.order('name ASC')
+    @cocktails = Cocktail.all
   end
 
   def show
     @cocktail = Cocktail.find(params[:id])
-    @doses = Dose.where(cocktail: @cocktail)
-    @dose = Dose.new
+    @doses = Doses.where(cocktail: @cocktail)
   end
 
   def new

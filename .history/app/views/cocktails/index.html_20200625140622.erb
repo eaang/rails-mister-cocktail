@@ -3,7 +3,7 @@
     <h1>Menu</h1>
     <ul>
       <% @cocktails.each do |cocktail| %>
-        <li><%= link_to cocktail.name.split.map(&:capitalize)*' ', cocktail %></li>
+        <li><%= link_to cocktail.name.name.split.map(&:capitalize)*' ', cocktail %></li>
       <% end %>
     </ul>
   </div>

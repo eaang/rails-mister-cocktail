@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="col-12">
+    <h1><%= @cocktail.name.split.map(&:capitalize)*' ' %></h1>
+    <ul>
+      <% @doses.sort.each do |dose| %>
+        <li><%= "#{dose.description} #{dose.ingredient.name.split.map(&:capitalize)*' '}" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+

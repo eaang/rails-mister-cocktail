@@ -13,9 +13,9 @@ class DosesController < ApplicationController
 
   def create
     @dose = Dose.new(dose_params)
-    @dose.save
+    @cocktail.save
 
-    redirect_to dose_params[:cocktail]
+    redirect_to cocktails_path
   end
 
   private

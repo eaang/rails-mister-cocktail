@@ -15,7 +15,7 @@ ingredients.each { |ingredient| Ingredient.create(name: ingredient['strIngredien
     result = Ingredient.create(name: name.downcase) if result.nil?
     ingredients << result
   end
-  amounts = data.select { |key, _| key.to_s.match(/strMeasure/) }.values.compact
+  amounts = data.select { |key, _| key.to_s.match(/strMeasure/).strip }.values.compact
   doses = amounts.zip(ingredients)
-  doses.each { |dose| Dose.create(cocktail: cocktail, ingredient: dose[1], description: dose[0].strip) }
+  doses.each { |dose| Dose.create(cocktail: cocktail, ingredient: dose[1], description: dose[0]) }
 end
