@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="col-12">
+    <h1>Menu</h1>
+
+  </div>
+      <div class="cards">
+      <% @cocktails.each do |cocktail| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.picture %>)">
+          <%= link_to cocktail.name.split.map(&:capitalize)*' ', cocktail %>
+        </div>
+      <% end %>
+    </div>
+</div>

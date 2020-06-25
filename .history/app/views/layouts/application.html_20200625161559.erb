@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RailsMisterCocktail</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <%= link_to 'Mister Cocktail', cocktails_path, class: 'navbar-brand' %>
+      <div class="right-wrapper d-flex">
+
+            <%= simple_form_for :index, { url: cocktails_path } html: { class: 'form-inline' } do |f| %>
+              <%= f.input :query, label:false, placeholder: 'Cocktail name', class: 'form-control mr-sm-2' %>
+              <%= f.button :submit, 'Search', class: 'btn btn-primary my-2 my-sm-0 mr-sm-2' %>
+            <% end %>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Create New Cocktail
+          </button>
+          <div class="dropdown-menu">
+            <%= simple_form_for @cocktail, html: { class: 'px-4 py-3' } do |f| %>
+              <%= f.input :name, label:false, placeholder: 'Cocktail Name' %>
+              <%= f.button :submit, 'Create', class: 'btn btn-primary btn-block' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

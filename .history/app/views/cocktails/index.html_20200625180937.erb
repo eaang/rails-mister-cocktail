@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="col-12 text-center my-3">
+    <h1>Pick Your Poison</h1>
+  </div>
+  <div class="col">
+    <div class="cards">
+      <% @cocktails.each do |cocktail| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.picture %>)">
+          <%= link_to cocktail.name.split.map(&:capitalize)*' ', cocktail, class: 'text-light' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

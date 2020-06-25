@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="col-12">
+    <h1>Menu</h1>
+    <ul>
+      <% @cocktail_new.each do |cocktail| %>
+        <li><%= link_to cocktail.name.split.map(&:capitalize)*' ', cocktail %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
