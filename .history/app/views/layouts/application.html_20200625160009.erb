@@ -18,16 +18,17 @@
           <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search all</button>
         </form>
         <div class="btn-group">
-          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Create New Cocktail
-          </button>
-          <div class="dropdown-menu">
-            <%= simple_form_for [@cocktail], html: { class: 'px-4 py-3' } do |f| %>
-              <%= f.input :name, label:false, placeholder: 'Cocktail Name' %>
-              <%= f.button :submit, class: 'btn btn-primary' %>
-            <% end %>
-          </div>
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Right-aligned menu
+  </button>
+  <div class="dropdown-menu">
+          <%= simple_form_for [@cocktail], html: { class: 'dropdown-menu p-4' } do |f| %>
+            <%= f.input :name, label:false, placeholder: 'What is your cocktail called?' %>
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          <% end %>
         </div>
+</div>
+        
       </div>
     </nav>
     <%= yield %>

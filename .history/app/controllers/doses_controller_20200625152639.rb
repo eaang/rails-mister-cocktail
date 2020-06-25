@@ -11,7 +11,7 @@ class DosesController < ApplicationController
     @dose = Dose.new
     info = params[:dose]
     @dose.description = info[:description]
-    @dose.cocktail = Cocktail.find(params[:cocktail_id])
+    @dose.cocktail = Cocktail.find(params[:cocktail])
     @dose.ingredient = Ingredient.find(info[:ingredient_id])
     @dose.save if @dose.valid?
 

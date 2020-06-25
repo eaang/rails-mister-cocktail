@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="col-12">
+    <h1><%= @cocktail.name.split.map(&:capitalize)*' ' %></h1>
+    <ul>
+      <% @doses.each do |dose| %>
+        <li>
+          <%= "#{dose.description} #{dose.ingredient.name.split.map(&:capitalize)*' '}" %>
+          <%= link_to '❌', dose_path(dose),
+            data: {:confirm => 'Are you sure?'}, :method => :delete %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <%= simple_form_for [@cocktail, @dose] html: { class: 'form-inline' } do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+</div>

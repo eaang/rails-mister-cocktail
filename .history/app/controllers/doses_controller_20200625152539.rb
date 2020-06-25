@@ -9,10 +9,9 @@ class DosesController < ApplicationController
 
   def create
     @dose = Dose.new
-    info = params[:dose]
-    @dose.description = info[:description]
-    @dose.cocktail = Cocktail.find(params[:cocktail_id])
-    @dose.ingredient = Ingredient.find(info[:ingredient_id])
+    @dose.description = params[:dose][:description]
+    @dose.cocktail = Cocktail.find(params[:dose][:cocktail])
+    @dose.ingredient = Ingredient.find(params[:dose][:ingredient])
     @dose.save if @dose.valid?
 
     redirect_to @dose.cocktail
