@@ -4,11 +4,4 @@ class Ingredient < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  before_destroy :check_for_doses
-
-  private
-
-  def check_for_doses
-    raise ActiveRecord::InvalidForeignKey.new if doses.length.positive?
-  end
 end

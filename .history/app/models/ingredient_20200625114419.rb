@@ -9,6 +9,7 @@ class Ingredient < ApplicationRecord
   private
 
   def check_for_doses
-    raise ActiveRecord::InvalidForeignKey.new if doses.length.positive?
+    raise ActiveRecord::InvalidForeignKey.new('This ingredient is being used!') if doses.!empty?
+    fail 'This ingredient is being used!'
   end
 end

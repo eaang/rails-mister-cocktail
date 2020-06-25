@@ -8,7 +8,9 @@ class Ingredient < ApplicationRecord
 
   private
 
-  def check_for_doses
-    raise ActiveRecord::InvalidForeignKey.new if doses.length.positive?
-  end
+  def check_for_doses   
+    unless doses.nil?
+      return false   
+    end 
+  end 
 end

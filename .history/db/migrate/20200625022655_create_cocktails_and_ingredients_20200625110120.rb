@@ -11,8 +11,8 @@ class CreateCocktailsAndIngredients < ActiveRecord::Migration[6.0]
     end
  
     create_table :doses do |t|
-      t.references :cocktail
-      t.references :ingredient
+      t.belongs_to :cocktails
+      t.belongs_to :ingredients
       t.string :description
       t.timestamps
     end

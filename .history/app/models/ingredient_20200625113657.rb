@@ -9,6 +9,9 @@ class Ingredient < ApplicationRecord
   private
 
   def check_for_doses
-    raise ActiveRecord::InvalidForeignKey.new if doses.length.positive?
+    if doses.count > 0
+      return false
+      raise "cannot delete ingredients while doses exist"
+    end
   end
 end
