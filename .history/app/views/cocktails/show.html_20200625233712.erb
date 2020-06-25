@@ -29,14 +29,14 @@
       <div class="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-start">
         <div class="card text-light bg-primary mb-3">
           <div class="card-header h4 border-bottom border-light">INGREDIENTS</div>
-          <div class="card-body pt-0">
+          <div class="card-body">
             <div class="list-group">
               <% @doses.each do |dose| %>
-                <div class="list-group-item d-flex bg-primary text-light justify-content-between border-0 p-0 pt-3">
-                  <div><%= "#{dose.description} #{dose.ingredient.name}" %></div>
+                <div class="list-group-item">
                   <%= link_to '✖️', dose_path(dose),
                   data: {confirm: "Delete #{dose.description} #{dose.ingredient.name}?"}, 
-                  class: 'text-decoration-none', method: :delete %>
+                  class: 'text-decoration-none list-group-item pd-0', method: :delete %>
+                  <%= "#{dose.description} #{dose.ingredient.name}" %>
                 </div>
               <% end %>
             </div>
@@ -44,12 +44,12 @@
         </div>
         <div class="card mb-3 bg-primary w-100 mb-3 bg-primary">
           <div class="card-header h4 border-bottom border-light">DIRECTIONS</div>
-          <div class="card-body pt-0">
-            <div class="list-group">
+          <div class="card-body">
+            <ol class="list-group pl-3">
               <% @show_cocktail.direction.split('.').each do |step|%>
-                <div class="list-group-item bg-primary text-light border-0 p-0 pt-3"><%= step %>.</div>
+                <li class="pt-1"><%= step %>.</li>
               <% end %>
-            </div>
+            </ol>
           </div>
         </div>
       </div>
