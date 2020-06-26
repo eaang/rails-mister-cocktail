@@ -5,11 +5,11 @@ class CocktailsController < ApplicationController
   end
 
   def search
-    if params[:search].blank?  
-      redirect_to(root_path, alert: "Empty field!") and return
+    if params[:cocktail][:id] == ''
+      redirect_to cocktails_path
     else
-      @parameter = params[:search].downcase
-      @cocktails = Store.all.where("lower(name) LIKE :search", search: @parameter)
+      @cocktail = Cocktail.find(cocktail_params[:cocktail][:id])
+      redirect_to cocktail_path(@cocktail)
     end
   end
 
@@ -21,7 +21,6 @@ class CocktailsController < ApplicationController
   end
 
   def update
-    @cocktail = Cocktail.find(params[:id])
     @cocktail.update(cocktail_params)
 
     redirect_to @cocktail

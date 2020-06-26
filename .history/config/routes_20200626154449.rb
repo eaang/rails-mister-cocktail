@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root to: 'cocktails#index'
 
   get '/search', to: 'cocktails#search'
+
+  get '/all', to: 'cocktails#all'
 end

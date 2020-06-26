@@ -5,11 +5,8 @@ class CocktailsController < ApplicationController
   end
 
   def search
-    if params[:search].blank?  
-      redirect_to(root_path, alert: "Empty field!") and return
-    else
-      @parameter = params[:search].downcase
-      @cocktails = Store.all.where("lower(name) LIKE :search", search: @parameter)
+    if params[:search].blank?
+      redirect_to root_path
     end
   end
 

@@ -9,7 +9,7 @@ class CocktailsController < ApplicationController
       redirect_to(root_path, alert: "Empty field!") and return
     else
       @parameter = params[:search].downcase
-      @cocktails = Store.all.where("lower(name) LIKE :search", search: @parameter)
+      @results = Store.all.where("lower(name) LIKE :search", search: @parameter)  
     end
   end
 
