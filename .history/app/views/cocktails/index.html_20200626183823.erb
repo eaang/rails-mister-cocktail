@@ -2,6 +2,7 @@
   <h1>Cocktaaaaail</h1>
   <i class="fas fa-chevron-down btn text-white" id="down"></i>
 </header>
+
 <div class="container d-flex my-5 justify-content-center">
   <div class="col">
     <div class="row mb-5 justify-content-center">
@@ -13,20 +14,20 @@
           <%= link_to cocktail, class: 'text-light' do %>
             <% if cocktail.photo.attached? %>
               <div class="cocktail-pic" style="background-image: url(<%= cl_image_path cocktail.photo.key %>)">
-            <% else %>
-              <div class="cocktail-pic" style="background-image: url('https://i.imgur.com/cxWlXuH.jpg')">
+              <% else %>
+                <div class="cocktail-pic" style="background-image: url('https://i.imgur.com/cxWlXuH.jpg')">
+                <% end %>
+                <div class="card-category">
+                  <%= cocktail.name.titleize %>
+                </div>
+              </div>
             <% end %>
-            <div class="card-category">
-              <%= cocktail.name.titleize %>
-            </div>
-            </div>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
-    <div class="row mt-5 justify-content-center">
+    <div class="row">
       <i class="fas fa-chevron-up btn text-white" id="up"></i>
     </div>
   </div>
-</div>
 <div id="sizing-box" style="height:0;width:0;outline:none;border:none;padding:none;margin:none;box-sizing:content-box;"></div>

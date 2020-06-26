@@ -8,7 +8,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 import 'bootstrap';
-import '../components/header';
 import 'select2/dist/css/select2.css';
 import { initSelect2 } from '../components/init_select2';
 
@@ -19,3 +18,10 @@ initSelect2();
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+document.addEventListener("DOMContentLoaded", () => {
+  const arrow = document.querySelector("#down")
+  arrow.addEventListener("click", () => {
+    window.scrollBy(0, window.innerHeight, behavior: 'smooth');
+  })
+})

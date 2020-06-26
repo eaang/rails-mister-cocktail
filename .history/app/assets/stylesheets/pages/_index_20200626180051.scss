@@ -1,0 +1,16 @@
+// Import page-specific CSS files here.
+@import "home";
+
+header
+{
+ height: 100vh;
+ background-image: url('https://res.cloudinary.com/dqywsmiax/image/upload/v1593163512/assorted-wine-bottles-1283219_lxkvel.jpg');
+ /* flex-box thing */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ background-size: cover; 
+ margin-bottom: 30px;
+ margin-top: -8em;
+}

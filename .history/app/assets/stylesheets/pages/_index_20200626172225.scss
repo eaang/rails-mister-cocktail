@@ -1,0 +1,14 @@
+// Import page-specific CSS files here.
+@import "home";
+
+header
+{
+ height: 100vh;
+ background-image: url(enter your photo url here!);
+ /* flex-box thing */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center; background-size: cover; 
+ margin-bottom: 30px;
+}
