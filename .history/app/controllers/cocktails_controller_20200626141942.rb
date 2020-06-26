@@ -29,9 +29,9 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @cocktail = Cocktail.new(cocktail_params)
+    @cocktail = Cocktail.new(cocktail_params[:cocktail])
     @cocktail.name = @cocktail.name.downcase
-    @cocktail.save
+    @cocktail.save if @cocktail.valid?
 
     redirect_to @cocktail
   end
@@ -46,6 +46,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :direction)
+    params.permit!
   end
 end

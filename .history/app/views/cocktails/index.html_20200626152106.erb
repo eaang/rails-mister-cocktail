@@ -6,10 +6,10 @@
     <div class="cards flex-fill">
       <% @cocktails.each do |cocktail| %>
         <%= link_to cocktail, class: 'text-light' do %>
-        <% if cocktail.photo.attached? %>
+        <% if cocktail.image.attached? %>
           <div class="cocktail-pic" style="background-image: url(<%= cl_image_path cocktail.photo.key %>)">
         <% else %>
-          <div class="cocktail-pic" style="background-image: url('https://i.imgur.com/cxWlXuH.jpg')">
+          <div class="cocktail-pic" style="background-image: url('https://images.unsplash.com/photo-1558645836-e44122a743ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')">
         <% end %>
             <div class="card-category">
             <%= cocktail.name.titleize %>

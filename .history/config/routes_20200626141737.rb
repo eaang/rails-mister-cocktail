@@ -7,4 +7,3 @@ Rails.application.routes.draw do
   root to: 'cocktails#index'
 
   post '/search', to: 'cocktails#search'
-end

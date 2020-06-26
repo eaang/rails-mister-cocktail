@@ -4,9 +4,5 @@ class Cocktail < ApplicationRecord
   has_one_attached :photo
   validates :name, presence: true, uniqueness: true
 
-  after_validation :downcase_name
-
-  def downcase_name
-    self.name = name.downcase
-  end
+  before_save: name.downcase
 end

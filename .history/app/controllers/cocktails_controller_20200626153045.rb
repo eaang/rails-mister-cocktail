@@ -29,6 +29,7 @@ class CocktailsController < ApplicationController
   end
 
   def create
+    raise
     @cocktail = Cocktail.new(cocktail_params)
     @cocktail.name = @cocktail.name.downcase
     @cocktail.save
@@ -46,6 +47,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :direction)
+    params.permit(:name, :description)
   end
 end

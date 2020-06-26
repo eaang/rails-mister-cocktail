@@ -29,6 +29,7 @@ class CocktailsController < ApplicationController
   end
 
   def create
+    raise
     @cocktail = Cocktail.new(cocktail_params)
     @cocktail.name = @cocktail.name.downcase
     @cocktail.save
