@@ -1,0 +1,34 @@
+<header>
+  <div class="container mx-5">
+    <div class="dictionary-box d-flex flex-column">
+      <div class="title-box">
+        <h1 class="text-light">Cocktail</h1>
+        <div id="grammar" class="h4 text-light">noun</div>
+      </div>
+      <div class="def-box d-flex flex-wrap">
+        <div class="h3 text-light definition col col-md-12 mr-2">1. A drink, usually an alcoholic one, made by mixing two or more drinks together.</div>
+        <div class="h3 text-light definition col-6 col-md-12">2. A mixture of different things, often an unexpected, dangerous, or exciting one.</div>
+      </div>
+    </div>
+    <div class="text-center">
+      <i class="fas fa-chevron-down btn text-light arrow" id="down"></i>
+    </div>
+  </div>
+</header>
+<div class="container d-flex my-5 justify-content-center">
+</div>
+
+
+
+    <div class="cards flex-fill">
+        <%= link_to @random_cocktail, class: 'text-light' do %>
+          <% if @random_cocktail.photo.attached? %>
+            <div class="cocktail-pic" style="background-image: url(<%= cl_image_path @random_cocktail.photo.key %>)">
+            <% else %>
+              <div class="cocktail-pic" style="background-image: url('https://i.imgur.com/cxWlXuH.jpg')">
+              <% end %>
+              <div class="card-category">
+                <%= @random_cocktail.name.titleize %>
+              </div>
+            </div>
+          <% end %>

@@ -1,0 +1,90 @@
+<div class="container d-flex my-5 justify-content-center">
+  <div class="col">
+    <div class="row mb-5 justify-content-center">
+      <h1 class="text-light mb-0"><%= @cocktail.name.titleize %></h1>
+    </div>
+    <div class="row">
+      <div id="recipe" class="d-flex flex-wrap flex-fill">
+        <div class="col-12 col-md-6 col-lg-4 d-flex flex-column">
+          <div class="card text-light bg-dark mb-3 d-flex">
+            <div class="card-header h4">YOUR DRINK</div>
+            <% if @cocktail.photo.attached? %>
+              <%= cl_image_tag @cocktail.photo.key, class: 'img-fluid' %>
+            <% else %>
+              <%= image_tag 'https://i.imgur.com/cxWlXuH.jpg', class: 'img-fluid' %>
+            <% end %>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary dropdown-toggle rounded-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Edit
+              </button>
+              <div class="dropdown-menu bg-dark border-0 w-100">
+                <%= simple_form_for @cocktail, html: { class: 'px-2 py-1' } do |f| %>
+                  <%= f.input :name, label: false, placeholder: 'Cocktail Name', input_html: { class: 'bg-dark text-light' } %>
+                  <%= f.input :direction, as: :text, label: false, placeholder: 'Directions', input_html: { class: 'bg-dark text-light' } %>
+                  <%= f.input :photo, as: :file %>
+                  <%= f.button :submit, 'Edit', class: 'btn btn-secondary btn-block' %>
+                <% end %>
+              </div>
+              <%= link_to 'Delete', cocktail_path(@cocktail),
+          data: {confirm: "Delete #{@cocktail.name.titleize}?"}, 
+          class: 'btn btn-danger', method: :delete %>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-start">
+          <div class="card text-light bg-dark mb-3">
+            <div class="card-header h4 border-bottom border-light">INGREDIENTS</div>
+            <div class="card-body pt-0">
+              <div class="list-group">
+                <% @doses.each do |dose| %>
+                  <div class="list-group-item d-flex bg-dark text-light justify-content-between border-0 p-0 pt-3">
+                    <div><%= "#{dose.description} #{dose.ingredient.name}" %></div>
+                    <%= link_to dose_path(dose),
+                  data: {confirm: "Delete #{dose.description} #{dose.ingredient.name}?"}, 
+                  class: 'text-decoration-none', method: :delete do %>
+                      <i class="fas fa-minus text-light"></i>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 bg-dark w-100 mb-3 bg-dark">
+            <div class="card-header h4 border-bottom border-light">DIRECTIONS</div>
+            <div class="card-body pt-0">
+              <div class="list-group">
+                <% @cocktail.direction.split('.').each do |step|%>
+                  <div class="list-group-item bg-dark text-light border-0 p-0 pt-3"><%= step %>.</div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 d-flex flex-column">
+          <div class="card text-light bg-dark">
+            <div class="card-header h4 border-bottom border-light">ADD A DOSE?</div>
+            <div class="card-body">
+              <%= form_for [@cocktail, @dose, @ingredients] do |f| %>
+                <div class="form-row">
+                  <div class="col">
+                    <%= f.text_field(:dose, :description) %>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <%= f.select(:ingredient, :name) %>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col">
+                    <%= f.submit 'Add', class: 'btn btn-secondary btn-block' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
