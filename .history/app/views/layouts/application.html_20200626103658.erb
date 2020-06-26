@@ -17,6 +17,10 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 
+        <%= simple_form_for cocktail_path(@cocktail), html: { class: 'form-inline' } do |f| %>
+          <%= f.input :id, label: false, collection: @cocktails, class: 'select 2', label_method: lambda {|k| k.name.titleize} %>
+          <%= f.button :submit, 'Go', class: 'btn btn-primary mr-3' %>
+        <% end %>
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
           <div class="btn-group " role="group">
             <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create New Cocktail </button>

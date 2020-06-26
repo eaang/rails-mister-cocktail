@@ -17,11 +17,15 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
 
+        <%= simple_form_for cocktails_path, html: { class: 'form-inline' } do |f| %>
+          <%= f.input :name, label: false, collection: @cocktails, label_method: lambda {|k| k.name.titleize} %>
+          <%= f.button :submit, 'Go', class: 'btn btn-primary btn-block' %>
+        <% end %>
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
           <div class="btn-group " role="group">
             <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create New Cocktail </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1" style="">
-              <%= simple_form_for Cocktail.new, html: { class: 'px-2 py-1' } do |f| %>
+              <%= simple_form_for @cocktail, html: { class: 'px-2 py-1' } do |f| %>
                 <%= f.input :name, label: false, placeholder: 'Cocktail Name', input_html: { class: 'bg-dark text-light' } %>
                 <%= f.input :direction, as: :text, label: false, placeholder: 'Directions', input_html: { class: 'bg-dark text-light' } %>
                 <%= f.input :picture, label: false, placeholder: 'Image Link', input_html: { class: 'bg-dark text-light' } %>
