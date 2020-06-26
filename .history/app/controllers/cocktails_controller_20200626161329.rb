@@ -8,12 +8,10 @@ class CocktailsController < ApplicationController
     if params[:search].blank?
 
       redirect_to root_path
-    else
-      @input = params[:search]
-      search = "name LIKE '%#{params[:search].downcase.split(' ').join('%')}%'"
-      @cocktails = Cocktail.all.where(search)
-      @ingredients = Cocktail.joins(:ingredients).where("ingredients.#{search}")
-    end
+    else  
+      @parameter = params[:search].downcase  
+      @results = Store.all.where("lower(name) LIKE :search", search: @parameter)  
+    end  
   end
 
   def show

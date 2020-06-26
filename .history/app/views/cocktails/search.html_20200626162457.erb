@@ -1,0 +1,9 @@
+<h3>Search Results</h3>  
+<br>
+    <% @cocktails.each do |cocktail| %>  
+        <%= cocktail.name %><br>  
+    <% end %>
+    </hr>
+    <% @ingredients.each do |ingredient| %>  
+        <%= ingredient.name %><br>  
+    <% end %>
