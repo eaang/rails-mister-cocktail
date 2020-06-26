@@ -9,10 +9,10 @@ require("@rails/activestorage").start()
 require("channels")
 import 'bootstrap';
 import '../components/scroll_arrows';
+import 'select2/dist/css/select2.css';
 import { initSelect2 } from '../components/init_select2';
 
 initSelect2();
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.

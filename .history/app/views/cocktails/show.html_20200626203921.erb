@@ -67,12 +67,12 @@
               <%= simple_form_for [@cocktail, @dose] do |f| %>
                 <div class="form-row">
                   <div class="col">
-                    <%= f.input :description, label: false, placeholder: 'How much?', input_html: { class: 'bg-primary text-light' } %>
+                    <%= f.input :description, label: false, placeholder: 'How much?', input_html: { class: 'bg-dark text-light' } %>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="col">
-                    <%= f.association :ingredient, label: false, prompt: 'select ingredient', input_html: { class: 'bg-primary text-light' } %>
+                    <%= f.association :ingredient, label: false, prompt: 'select ingredient', class: 'select2', input_html: { class: 'bg-dark text-light' } %>
                   </div>
                 </div>
                 <div class="form-row">
