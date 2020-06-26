@@ -16,7 +16,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-
+              <%= simple_form_for @cocktails, html: { class: 'form-inline' } do |f| %>
+                <%= f.association :cocktail, collection: @cocktails, label_method: lambda { |k| "#{k.name.titleize}" %>
+                <%= f.button :submit, 'Go', class: 'btn btn-primary btn-block mr-3' %>
+              <% end %>
 
 
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">

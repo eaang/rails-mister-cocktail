@@ -4,11 +4,6 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all.order('name ASC')
   end
 
-  def search
-    @cocktail = whateverparams
-    redirect_to cocktail_path(@cocktail)
-  end
-
   def show
     @cocktail = Cocktail.find(params[:id])
     @doses = Dose.where(cocktail: @cocktail)
