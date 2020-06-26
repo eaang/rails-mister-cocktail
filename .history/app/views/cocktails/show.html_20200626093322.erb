@@ -34,11 +34,9 @@
               <% @doses.each do |dose| %>
                 <div class="list-group-item d-flex bg-primary text-light justify-content-between border-0 p-0 pt-3">
                   <div><%= "#{dose.description} #{dose.ingredient.name}" %></div>
-                  <%= link_to dose_path(dose),
+                  <%= link_to '<i class="far fa-minus-square"></i>', dose_path(dose),
                   data: {confirm: "Delete #{dose.description} #{dose.ingredient.name}?"}, 
-                  class: 'text-decoration-none', method: :delete do %>
-                  <i class="fas fa-minus text-light"></i>
-                  <% end %>
+                  class: 'text-decoration-none', method: :delete %>
                 </div>
               <% end %>
             </div>
