@@ -1,0 +1,23 @@
+
+#down {
+  position: absolute;
+  top: 85vh;
+  padding: 20px;
+  font-size: 2.5em;
+  :hover {
+    cursor: pointer;
+    background-color: #eee;
+    opacity: 0.8;
+    }
+  }
+
+  
+#up {
+  padding: 20px;
+  font-size: 2.5em;
+  :hover {
+    cursor: pointer;
+    background-color: #eee;
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,38 @@
+<header>
+  <div class="dictionary-box">
+  <div><h1>Cocktail</h1></div>
+  <div><i>noun</i></div>
+  <div class="h3">A drink, usually an alcoholic one, made by mixing two or more drinks together.</div>
+  <div class="h3">A mixture of different things, often an unexpected, dangerous, or exciting one.</div>
+  </div>
+
+  <i class="fas fa-chevron-down btn text-white" id="down"></i>
+</header>
+<div class="container d-flex my-5 justify-content-center">
+  <div class="col">
+    <div class="row mb-5 justify-content-center">
+      <div class="h1 text-light mb-0">Pick Your Poison</h1>
+    </div>
+    <div class="row">
+      <div class="cards flex-fill">
+        <% @cocktails.each do |cocktail| %>
+          <%= link_to cocktail, class: 'text-light' do %>
+            <% if cocktail.photo.attached? %>
+              <div class="cocktail-pic" style="background-image: url(<%= cl_image_path cocktail.photo.key %>)">
+            <% else %>
+              <div class="cocktail-pic" style="background-image: url('https://i.imgur.com/cxWlXuH.jpg')">
+            <% end %>
+            <div class="card-category">
+              <%= cocktail.name.titleize %>
+            </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mt-5 justify-content-center">
+      <i class="fas fa-chevron-up btn text-white" id="up"></i>
+    </div>
+  </div>
+</div>
+<div id="sizing-box" style="height:0;width:0;outline:none;border:none;padding:none;margin:none;box-sizing:content-box;"></div>

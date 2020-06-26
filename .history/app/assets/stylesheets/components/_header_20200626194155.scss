@@ -1,0 +1,28 @@
+header {
+  height: 100vh;
+  background-image: 
+  linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+  url('https://res.cloudinary.com/dqywsmiax/image/upload/v1593163512/assorted-wine-bottles-1283219_lxkvel.jpg');
+  /* flex-box thing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: cover; 
+  margin-top: -7em;
+  font-family: 'Alegreya', serif;
+  h1 {
+    font-family: 'Lora', serif;
+    text-transform: capitalize;
+    font-size: 7em;
+  }
+  #grammar {
+    font-style: italic;
+    margin-bottom: 1.3em;
+    margin-left: 3em;
+  }
+  .definition {
+    font-weight: 500;
+  }
+ }
+ 
