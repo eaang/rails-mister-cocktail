@@ -18,9 +18,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-              <%= simple_form_for @cocktail, url: '/search', method: :post, html: { class: 'form-inline' }, unless_blank: true  do |f| %>
+              <%= simple_form_for @cocktail, url: '/search', method: :post, html: { class: 'form-inline' } do |f| %>
                 <%= f.input :id, collection: @cocktails, 
-                            prompt: 'Choose a cocktail',
+                            include_blank: false,
                             include_hidden: false,
                             label_method: lambda { |k| "#{k.name.titleize}" },
                             input_html: { class: 'select2' } %>
