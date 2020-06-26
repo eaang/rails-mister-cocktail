@@ -35,7 +35,7 @@
               <div class="dropdown-menu dropdown-menu-right bg-primary" aria-labelledby="btnGroupDrop1" style="">
                 <%= simple_form_for Cocktail.new, html: { class: 'px-2 py-1' } do |f| %>
                   <%= f.input :name, label: 'Cocktail Name', placeholder: 'Name', input_html: { class: 'bg-dark text-light' } %>
-                  <%= f.input :direction, as: :text, label:'Directions', placeholder: 'Directions', input_html: { class: 'bg-dark text-light' } %>
+                  <%= f.input :direction, as: :text, label:'Directions', placeholder: 'How to make it', input_html: { class: 'bg-dark text-light' } %>
                   <%= f.input :photo, label: 'Upload an Image', as: :file %>
                   <%= f.button :submit, 'Create', class: 'btn btn-dark btn-block' %>
                 <% end %>
