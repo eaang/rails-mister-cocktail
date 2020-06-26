@@ -3,7 +3,7 @@ import 'select2';
 
 const initSelect2 = () => {
   $('.select2').select2();
-  console.log("hi i exist!");
+  theme: 'bootstrap4',
 };
 
 export { initSelect2 };

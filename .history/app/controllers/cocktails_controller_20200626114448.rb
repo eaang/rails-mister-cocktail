@@ -5,7 +5,7 @@ class CocktailsController < ApplicationController
   end
 
   def search
-    @cocktail = Cocktail.find(cocktail_params[:cocktail][:id])
+    @cocktail = Cocktail.find(cocktail_params[:cocktail])
     redirect_to cocktail_path(@cocktail)
   end
 

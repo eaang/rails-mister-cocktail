@@ -8,8 +8,6 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="/path/to/select2.css">
-    <link rel="stylesheet" href="/path/to/select2-bootstrap4.css">
   </head>
   <body class="bg-dark text-light">
     <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
@@ -18,10 +16,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-              <%= simple_form_for @cocktail, url: '/search', method: :post, html: { class: 'form-inline' } do |f| %>
-                <%= f.input :id, collection: @cocktails, label_method: lambda { |k| "#{k.name.titleize}" }, input_html: { class: 'select2', value: "" } %>
-                <%= f.button :submit, 'Search', class: 'btn btn-primary mr-3' %>
-              <% end %>
+
+<% form_tag products_path, :method => :get do |f| %>
+  <%=select_tag :name, options_for_select(@cocktails, f.object.name), :onchange => "this.form.submit();" %>
+  <%=submit_tag "Search" %>
+<% end %>
 
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
           <div class="btn-group " role="group">

@@ -8,8 +8,6 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="/path/to/select2.css">
-    <link rel="stylesheet" href="/path/to/select2-bootstrap4.css">
   </head>
   <body class="bg-dark text-light">
     <nav class="navbar navbar-expand-md sticky-top navbar-light bg-light">
@@ -18,10 +16,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-              <%= simple_form_for @cocktail, url: '/search', method: :post, html: { class: 'form-inline' } do |f| %>
-                <%= f.input :id, collection: @cocktails, label_method: lambda { |k| "#{k.name.titleize}" }, input_html: { class: 'select2', value: "" } %>
-                <%= f.button :submit, 'Search', class: 'btn btn-primary mr-3' %>
+              <%= simple_form_for @cocktail, search_url, method: post, html: { class: 'form-inline' } do |f| %>
+                <%= f.association :cocktail, collection: @cocktails, label_method: lambda { |k| "#{k.name.titleize}" } %>
+                <%= f.button :submit, 'Search', class: 'btn btn-primary btn-block mr-3' %>
               <% end %>
+
 
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
           <div class="btn-group " role="group">
