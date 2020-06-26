@@ -19,11 +19,7 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
               <%= simple_form_for @cocktail, url: '/search', method: :post, html: { class: 'form-inline' } do |f| %>
-                <%= f.input :id, collection: @cocktails, 
-                            include_blank: 'Choose a cocktail',
-                            include_hidden: false,
-                            label_method: lambda { |k| "#{k.name.titleize}" },
-                            input_html: { class: 'select2' } %>
+                <%= f.input :id, collection: @cocktails, label_method: lambda { |k| "#{k.name.titleize}" }, input_html: { class: 'select2', value: @cocktail.name } %>
                 <%= f.button :submit, 'Search', class: 'btn btn-primary mr-3' %>
               <% end %>
 

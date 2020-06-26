@@ -5,10 +5,9 @@ class CocktailsController < ApplicationController
   end
 
   def search
-    if params[:cocktail][:id].nil?
+    if cocktail_params[:cocktail][:id].nil?
       redirect_to cocktails_path
-    else
-      @cocktail = Cocktail.find(cocktail_params[:cocktail][:id])
+    else      @cocktail = Cocktail.find(cocktail_params[:cocktail][:id])
       redirect_to cocktail_path(@cocktail)
     end
   end
