@@ -8,7 +8,7 @@ class CocktailsController < ApplicationController
   end
 
   def index
-    @cocktails = Cocktail.all.order('name ASC') if params[:index].blank?
+    @cocktails = Cocktail.all.order('name ASC')
   end
 
   def search
@@ -27,7 +27,6 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
     @cocktails = Cocktail.all.order('name ASC')
     @doses = Dose.where(cocktail: @cocktail)
-    @reviews = Review.where(cocktail: @cocktail)
     @dose = Dose.new
   end
 
