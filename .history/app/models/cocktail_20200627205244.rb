@@ -9,7 +9,7 @@ class Cocktail < ApplicationRecord
 
   def tidy_input
     self.name = name.downcase
-    direction.gsub('.)', ').')
-    direction.gsub('.]', '].')
+    self.direction.gsub(".)", ").")
+    self.direction.gsub(".]", "].")
   end
 end
