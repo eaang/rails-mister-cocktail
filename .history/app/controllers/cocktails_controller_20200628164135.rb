@@ -9,7 +9,7 @@ class CocktailsController < ApplicationController
 
   def index
     @cocktails = Cocktail.all.order('name ASC') if params[:order].blank?
-    if params[:order] == 'rasc'
+    if params[:order] == "rasc"
       @cocktails = Cocktail.all.order('name DESC')
     end
   end

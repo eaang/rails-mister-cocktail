@@ -8,10 +8,9 @@ class CocktailsController < ApplicationController
   end
 
   def index
-    @cocktails = Cocktail.all.order('name ASC') if params[:order].blank?
-    if params[:order] == 'rasc'
-      @cocktails = Cocktail.all.order('name DESC')
-    end
+    @cocktails = Cocktail.all.order('name ASC') if params[:index].blank?
+
+    puts params
   end
 
   def search

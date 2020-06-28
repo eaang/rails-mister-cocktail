@@ -4,13 +4,9 @@
       <h1 class="text-light ">PICK YOUR POISON</h1>
     </div>
   </div>
-  <div class="row col-12 flex-column mb-5">
-    <div class="h4 text-light align-self-center">
-      Rating
-      <%= link_to("⯅", url_options = {controller: "cocktails", action: "index", order: "rasc"}, html_options = { class: "text-light text-decoration-none" }) %>
-      <%= link_to("⯆", url_options = {controller: "cocktails", action: "index", order: "rdesc"}, html_options = { class: "text-light text-decoration-none" }) %> | 
-      <%= link_to "A-Z", cocktails_path, class: 'text-light text-decoration-none' %>
-    </div>
+  <div class="row col-12 flex-column justify-content-center mb-5">
+  <div class="h3 text-light">SORT BY</div>
+  <div class="h4 text-light">Rating | Reviews | Date Added | A-Z</div>
   </div>
   <div class="row">
     <div class="cards col-12 flex-fill">

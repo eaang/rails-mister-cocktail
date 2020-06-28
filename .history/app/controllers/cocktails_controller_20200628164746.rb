@@ -30,7 +30,6 @@ class CocktailsController < ApplicationController
     @cocktail = Cocktail.find(params[:id])
     @cocktails = Cocktail.all.order('name ASC')
     @doses = Dose.where(cocktail: @cocktail)
-    @reviews = @cocktail.reviews
     @dose = Dose.new
   end
 

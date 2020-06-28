@@ -8,16 +8,17 @@
         <div class="col-12 col-md-6 col-lg-4 d-flex flex-column">
           <div class="card text-light bg-dark mb-3 d-flex">
             <div class="card-header h4 d-flex justify-content-between">
-              YOUR DRINK
-              <div>
-                <% if @reviews.empty? %>
-                  <%# do nothing %>
-                <% else %>
-                  <% ratings = [] %>
-                  <% @reviews.each { |review| ratings << review.rating } %>
-                  <div><%= (ratings.reduce(:+) / ratings.size.to_f).round(2) %> ★</div>
-                <% end %>
-              </div>
+            YOUR DRINK
+            <div>
+
+            <% if @reviews.empty? %>
+            <%# do nothing %>
+            <% else %>
+            <% ratings = @reviews.map! { |review| review.rating } %>
+            <div><%= ratings.reduce(:+) / ratings.size.to_f %> </div>
+            <% end %>
+            </div>
+            
             </div>
             <% if @cocktail.photo.attached? %>
               <%= cl_image_tag @cocktail.photo.key, class: 'img-fluid' %>
