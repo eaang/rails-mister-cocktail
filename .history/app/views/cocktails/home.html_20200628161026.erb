@@ -23,8 +23,8 @@
     </div>
   </div>
   </div>
-  <div class="row">
-    <div class="cards col-12 flex-fill">
+  <div class="row col-12">
+    <div class="cards flex-fill">
       <%= link_to @random_cocktail, class: 'text-light' do %>
         <% if @random_cocktail.photo.attached? %>
           <div class="cocktail-pic" style="background-image: url(<%= cl_image_path @random_cocktail.photo.key %>)">
