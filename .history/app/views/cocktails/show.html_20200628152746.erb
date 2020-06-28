@@ -100,16 +100,12 @@
           <div class="card bg-primary text-light">
           <div class="card-body">
             <%= simple_form_for [@cocktail, Review.new], defaults: { input_html: { class: 'bg-dark text-light' } } do |f| %>
-              <div class="form-row justify-content-between">
-              <%= f.input :name, prompt: 'Your name', wrapper_html: { class: 'flex-fill mr-3' }  %>
-              <%= f.input :rating, collection: 0..5, include_blank: false %>
-              </div>
               <div class="form-row">
-              <%= f.input :content, as: :text, placeholder: 'Any other comments?', wrapper_html: { class: 'flex-fill' } %>
+              <%= f.input :name, prompt: 'Your name' %>
+              <%= f.input :rating, collection: 0..5, as: :radio_buttons, include_blank: false %>
               </div>
-              <div class="form-row">
+              <%= f.input :content, as: :text, placeholder: 'Any other comments?' %>
               <%= f.button :submit, class: 'btn btn-primary btn-block' %>
-              </div>
             <% end %>
             </div>
             </div>
