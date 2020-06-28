@@ -120,19 +120,17 @@
           <% else %>
             <% @reviews.each do |review| %>
               <div class="card bg-primary text-light mb-3">
-                <div class="card-header">
-                  <div class="name-and-stars d-flex justify-content-between">
-                    <div class="review-rating align-self-end"><%= review.name %></div>
-                    <div class="review-rating align-self-end"><%= review.rating %> stars</div>
+              <div class="card-header">
+                    <div class="name-and-stars d-flex justify-content-between">
+                      <div class="review-rating align-self-end"><strong><%= review.name %></strong></div>
+                      <div class="review-rating align-self-end"><%= review.rating %> stars</div>
+                    </div>
+              </div>
+                <div class="card-body">
+                  <div class="review d-flex flex-column">
+                    <div class="review-content"><%= review.content %></div>
                   </div>
                 </div>
-                <% if review.content != "" %>
-                  <div class="card-body">
-                    <div class="review d-flex flex-column">
-                      <div class="review-content"><%= review.content %></div>
-                    </div>
-                  </div>
-                <% end %>
               </div>
             <% end %>
           <% end %>

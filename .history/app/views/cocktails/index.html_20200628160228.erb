@@ -1,0 +1,67 @@
+<div class="container d-flex flex-column my-5">
+  <div class="row">
+    <div class="h1 text-light mb-5 text-center col-12">PICK YOUR POISON</div>
+  </div>
+  <div class="row col-12">
+    <div class="cards flex-fill">
+      <% @cocktails.each do |cocktail| %>
+        <%= link_to cocktail, class: 'text-light' do %>
+          <% if cocktail.photo.attached? %>
+            <div class="cocktail-pic" style="background-image: url(<%= cl_image_path cocktail.photo.key %>)">
+            <% else %>
+              <div class="cocktail-pic" style="background-image: url('https://i.imgur.com/cxWlXuH.jpg')">
+              <% end %>
+              <div class="card-category">
+                <%= cocktail.name.titleize %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row mt-5 justify-content-center col-12">
+      <i class="fas fa-chevron-up btn text-light arrow" id="up"></i>
+    </div>
+  </div>
+
+
+
+
+<div class="container d-flex my-5 justify-content-center px-0">
+  <div class="row justify-content-center">
+    <div class="h1 text-light mb-5 text-center col-12">PICK YOUR POISON</h1>
+  </div>
+  <div class="row col-12">
+    <div class="cards flex-fill">
+      <%= link_to @random_cocktail, class: 'text-light' do %>
+        <% if @random_cocktail.photo.attached? %>
+          <div class="cocktail-pic" style="background-image: url(<%= cl_image_path @random_cocktail.photo.key %>)">
+          <% else %>
+            <div class="cocktail-pic" style="background-image: url('https://i.imgur.com/cxWlXuH.jpg')">
+            <% end %>
+            <div class="card-category">
+              Random Cocktail
+            </div>
+          </div>
+        <% end %>
+        <%= link_to @latest_cocktail, class: 'text-light' do %>
+          <% if @latest_cocktail.photo.attached? %>
+            <div class="cocktail-pic" style="background-image: url(<%= cl_image_path @latest_cocktail.photo.key %>)">
+            <% else %>
+              <div class="cocktail-pic" style="background-image: url('https://i.imgur.com/cxWlXuH.jpg')">
+              <% end %>
+              <div class="card-category">
+                Latest Cocktail
+              </div>
+            </div>
+          <% end %>
+          <%= link_to cocktails_path, class: 'text-light' do %>
+            <div class="cocktail-pic" style="background-image: url('https://res.cloudinary.com/dqywsmiax/image/upload/v1593185286/helena-yankovska-sJOy9pveFbU-unsplash_bpj8ac.jpg')">
+              <div class="card-category">
+                All Cocktails
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
